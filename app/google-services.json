@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "411906048680",
+    "project_id": "fixwheels-347da",
+    "storage_bucket": "fixwheels-347da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411906048680:android:cf5cc927517f5af99db89d",
+        "android_client_info": {
+          "package_name": "com.harshit.fixwheels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlVrueGAgjb9XnR4riM4saBcxYm_mmp14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

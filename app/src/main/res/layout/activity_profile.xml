@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ProfileActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/primary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/backIV"
+                    android:src="@drawable/baseline_arrow_back"
+                    android:layout_weight="1"
+                    app:tint = "@color/white"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:textStyle="bold|normal"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/refine"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linear01"
+            android:layout_below="@id/toolbar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/select_your_availability"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/primary"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="15sp"/>
+
+
+            <Spinner
+                android:layout_marginTop="6sp"
+                android:padding="12sp"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="25sp"
+                android:background="@drawable/spinner_back"
+                android:elevation="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25sp"
+                android:id="@+id/spinner"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/add_your_status"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/primary"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="15sp"/>
+
+            <EditText
+                android:gravity="start"
+                android:padding="2sp"
+                android:id="@+id/problemET"
+                android:layout_marginTop="6sp"
+                android:background="@drawable/spinner_back"
+                android:layout_width="match_parent"
+                android:layout_height="85sp"
+                android:layout_marginEnd="25sp"
+                android:layout_marginStart="25sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/addImageTV"
+                android:text="@string/select_purpose"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/primary"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="15sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/add_your_location"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/primary"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/click_here"
+                    android:textColor="@color/primary"
+                    android:id="@+id/clickHereTV"
+                    android:textSize="18sp"
+                    app:drawableStartCompat="@drawable/baseline_add_location_24" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/saveBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="15sp"
+                android:text="@string/save_and_explore"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/primary"
+                />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

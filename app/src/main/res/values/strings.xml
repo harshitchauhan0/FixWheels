@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">FixWheels</string>
+    <string name="let_s_get_started">LET\'S GET STARTED</string>
+    <string name="welcome">Welcome</string>
+    <string name="refine">Add Details</string>
+    <string name="select_your_availability">Select Your Vehicle</string>
+    <string name="add_your_status">Add Your Problem</string>
+    <string name="_1_km">1 KM</string>
+    <string name="_10_km">100 KM</string>
+    <string name="select_hyper_local_distance">Select Hyper local Distance</string>
+    <string name="select_purpose">Click Here to add image</string>
+    <string name="save_and_explore">Save and Explore</string>
+    <string name="login">Login</string>
+    <string name="your_password">Your Password</string>
+    <string name="password">Password</string>
+    <string name="your_registered_email">Your Registered Email</string>
+    <string name="email">Email</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="click_here">Click Here</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="don_t_have_an_account">Don\'t Have An Account?</string>
+    <string name="sign_up_now">Sign Up Now</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="username">UserName</string>
+    <string name="thought">I know sometimes we forget, and sometimes we want to forget.</string>
+    <string name="reset">RESET</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explore">Explore</string>
+    <string name="shop">Shop</string>
+    <string name="add_your_location">Add Your Location</string>
+    <string name="your_mechanic_is_on_the_way">Your Mechanic is on the way</string>
+    <string name="thank_you_n_please_come_again">Thank you\n Please Come Again.</string>
+    <string name="welcome_to_our_app">Welcome to Our App</string>
+</resources>
