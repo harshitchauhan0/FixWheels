@@ -13,12 +13,16 @@ import com.harshit.fixwheels.databinding.ActivityProfileBinding
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding:ActivityProfileBinding
     private lateinit var vehicle:String
+    private lateinit var id:String
+    private lateinit var name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_profile)
         binding.backIV.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
         }
+        name =intent.getStringExtra("name").toString()
+        id = intent.getStringExtra("id").toString()
         val array:List<String> = listOf("Car","Motor Cycle","Truck","Others")
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,array)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

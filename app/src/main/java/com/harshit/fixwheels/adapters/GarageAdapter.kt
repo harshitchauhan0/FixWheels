@@ -23,11 +23,7 @@ class GarageAdapter(options: FirestoreRecyclerOptions<GarageModel>, context: Con
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(
-        holder: MyViewHolder,
-        position: Int,
-        model: GarageModel
-    ) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: GarageModel) {
         holder.name.text = model.name
         holder.rating.text = model.rating
         holder.status.text = model.description
@@ -37,6 +33,7 @@ class GarageAdapter(options: FirestoreRecyclerOptions<GarageModel>, context: Con
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
             intent.putExtra("id",model.id)
+            intent.putExtra("name",model.name)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             ContextCompat.startActivity(context,intent,null)
         }

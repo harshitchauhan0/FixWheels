@@ -7,7 +7,7 @@
         android:title="@string/explore"/>
     <item
         android:id="@+id/shopping"
-        android:icon="@drawable/baseline_shopping_cart_24"
+        android:icon="@drawable/icon"
         android:title="@string/shop"/>
 
 </menu>

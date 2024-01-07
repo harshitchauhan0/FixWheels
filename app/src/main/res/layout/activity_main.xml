@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
@@ -40,12 +40,19 @@
                         android:textSize="24sp" />
                 </LinearLayout>
                 <ImageView
-                    android:id="@+id/profileBTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20sp"
+                    android:id="@+id/GoToCart"
+                    android:src="@drawable/add_to_cart_3046"/>
+                <ImageView
+                    android:id="@+id/orderBTN"
                     android:layout_marginEnd="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_profile" />
+                    android:src="@drawable/baseline_shopping_cart_24" />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 

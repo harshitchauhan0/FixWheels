@@ -13,6 +13,5 @@ class OTWActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_otwactivity)
         binding.backIV.setOnClickListener{startActivity(Intent(this,MainActivity::class.java))}
-
     }
 }
