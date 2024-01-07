@@ -13,8 +13,7 @@ import com.bumptech.glide.Glide
 import com.harshit.fixwheels.model.GarageModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.harshit.fixwheels.MainActivity
-import com.harshit.fixwheels.ProfileActivity
+import com.harshit.fixwheels.activities.ProfileActivity
 import com.harshit.fixwheels.R
 
 class GarageAdapter(options: FirestoreRecyclerOptions<GarageModel>, context: Context):FirestoreRecyclerAdapter<GarageModel, GarageAdapter.MyViewHolder>(options) {

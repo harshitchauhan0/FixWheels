@@ -13,13 +13,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.model.MyCartModel
 
-class MyCartAdapter(private val context: Context, private val cartModelList: MutableList<MyCartModel>) :
+class MyCartAdapter(private val context: Context, private val cartModelList: MutableList<MyCartModel>,private val listener: OnCartItemDeletedListener) :
     RecyclerView.Adapter<MyCartAdapter.ViewHolder>() {
-
-    private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         var name: TextView = itemView.findViewById(R.id.product_name)
         var price: TextView = itemView.findViewById(R.id.product_price)
         var date: TextView = itemView.findViewById(R.id.current_date)
@@ -51,7 +51,8 @@ class MyCartAdapter(private val context: Context, private val cartModelList: Mut
                 .delete()
                 .addOnCompleteListener { task: Task<Void?> ->
                     if (task.isSuccessful) {
-                        cartModelList.toMutableList().removeAt(holder.adapterPosition)
+                        listener.onCartItemDeleted()
+                        cartModelList.remove(cartModelList[holder.adapterPosition])
                         notifyDataSetChanged()
                         Toast.makeText(context, "Item Deleted", Toast.LENGTH_SHORT).show()
                     } else {

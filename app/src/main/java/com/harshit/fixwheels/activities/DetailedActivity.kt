@@ -1,4 +1,4 @@
-package com.harshit.fixwheels
+package com.harshit.fixwheels.activities
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivityDetailedBinding
 import com.harshit.fixwheels.model.ViewAllModel
 import java.text.SimpleDateFormat

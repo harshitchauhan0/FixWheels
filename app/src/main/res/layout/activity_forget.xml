@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:background="#8A32C8"
         android:layout_height="match_parent"
-        tools:context=".ForgetActivity">
+        tools:context=".activities.ForgetActivity">
 
         <TextView
             android:id="@+id/textView"

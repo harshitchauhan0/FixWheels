@@ -1,4 +1,4 @@
-package com.harshit.fixwheels
+package com.harshit.fixwheels.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.adapters.OnCartItemDeletedListener
+import com.harshit.fixwheels.R
 import com.harshit.fixwheels.adapters.MyCartAdapter
 import com.harshit.fixwheels.databinding.ActivityMyCartBinding
 import com.harshit.fixwheels.model.MyCartModel
 
-class MyCartActivity : AppCompatActivity() {
+class MyCartActivity : AppCompatActivity(), OnCartItemDeletedListener {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var cartAdapter: MyCartAdapter
@@ -21,7 +23,7 @@ class MyCartActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMyCartBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_my_cart)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_my_cart)
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 
@@ -29,7 +31,7 @@ class MyCartActivity : AppCompatActivity() {
         binding.recyclerview.visibility = View.GONE
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
         cartModelList = mutableListOf()
-        cartAdapter = MyCartAdapter(this, cartModelList)
+        cartAdapter = MyCartAdapter(this, cartModelList,this)
         binding.recyclerview.adapter = cartAdapter
 
         firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
@@ -79,11 +81,15 @@ class MyCartActivity : AppCompatActivity() {
     }
 
     private fun calculateTotalAmount(cartModelList: MutableList<MyCartModel>) {
-        var totalAmount = 0.0
+        var totalAmount = 0L
         for (myCartModel in cartModelList) {
             totalAmount += myCartModel.totalPrice
         }
         binding.textView7.text = "Total Amount: $totalAmount"
+    }
+
+    override fun onCartItemDeleted() {
+        calculateTotalAmount(cartModelList)
     }
 
 }

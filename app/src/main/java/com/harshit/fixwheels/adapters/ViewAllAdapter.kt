@@ -1,6 +1,5 @@
 package com.harshit.fixwheels.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.harshit.fixwheels.DetailedActivity
+import com.harshit.fixwheels.activities.DetailedActivity
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.model.ViewAllModel
 
