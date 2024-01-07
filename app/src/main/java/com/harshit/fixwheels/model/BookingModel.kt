@@ -4,9 +4,11 @@ import com.google.firebase.Timestamp
 
 data class BookingModel(
     var imageUri: String? = "",
-    var address: String? = "",
+    var latitude: String? = "",
+    var longitude:String? = "",
     var timestamp: Timestamp? = null,
     var description: String? = "",
     var customerId:String? = "",
+    var vehicle:String? = "",
     var garageId:String? = ""
 )
