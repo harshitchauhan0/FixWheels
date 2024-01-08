@@ -7,6 +7,7 @@ Authentication: Secure user login and registration system.
 <BR>Product Marketplace: Explore and purchase a variety of vehicle-related products.
 <BR>Mechanic Booking: Book a mechanic by submitting vehicle details, issue descriptions, images, and current location.
 <BR>Firebase Integration: Utilizes Firebase for real-time data storage and management.
+<BR>
 Technologies Used
 <BR>Android Studio
 <BR>Kotlin
