@@ -1,4 +1,4 @@
-package com.harshit.fixwheels
+package com.harshit.fixwheels.fragments
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.harshit.fixwheels.R
 import com.harshit.fixwheels.activities.LoginActivity
 
 class LogoutFragment : Fragment() {
@@ -29,7 +30,10 @@ class LogoutFragment : Fragment() {
                 }
             .setNegativeButton("No"){ dialog, _ ->
                 dialog.dismiss()
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
+                requireActivity().supportFragmentManager.beginTransaction().replace(
+                    R.id.container,
+                    HomeFragment()
+                ).commit()
             }.create().show()
         return inflater.inflate(R.layout.fragment_logout, container, false)
     }

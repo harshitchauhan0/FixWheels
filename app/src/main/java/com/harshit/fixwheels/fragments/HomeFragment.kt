@@ -1,4 +1,4 @@
-package com.harshit.fixwheels
+package com.harshit.fixwheels.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
+import com.harshit.fixwheels.R
 import com.harshit.fixwheels.adapters.GarageAdapter
 import com.harshit.fixwheels.databinding.FragmentHomeBinding
 import com.harshit.fixwheels.model.GarageModel
@@ -17,7 +19,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: GarageAdapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
         val query = FirebaseFirestore.getInstance().collection(ExtraUtils.Garages)
         val options = FirestoreRecyclerOptions.Builder<GarageModel>()
             .setQuery(query, GarageModel::class.java)

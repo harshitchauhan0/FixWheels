@@ -7,8 +7,8 @@ import android.os.Bundle
 
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.navigation.NavigationBarView
-import com.harshit.fixwheels.HomeFragment
-import com.harshit.fixwheels.LogoutFragment
+import com.harshit.fixwheels.fragments.HomeFragment
+import com.harshit.fixwheels.fragments.LogoutFragment
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.ShopFragment
 import com.harshit.fixwheels.databinding.ActivityMainBinding
