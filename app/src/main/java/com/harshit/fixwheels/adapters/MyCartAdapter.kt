@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.model.MyCartModel
 
@@ -45,8 +46,8 @@ class MyCartAdapter(private val context: Context, private val cartModelList: Mut
         holder.totalPrice.text = cartModel.totalPrice.toString()
 
         holder.deleteItem.setOnClickListener {
-            firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
-                .collection("AddToCart")
+            firestore.collection(ExtraUtils.CurrentUser).document(auth.currentUser!!.uid)
+                .collection(ExtraUtils.AddToCart)
                 .document(cartModel.documentId!!)
                 .delete()
                 .addOnCompleteListener { task: Task<Void?> ->
@@ -56,7 +57,7 @@ class MyCartAdapter(private val context: Context, private val cartModelList: Mut
                         notifyDataSetChanged()
                         Toast.makeText(context, "Item Deleted", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(context, "Error" + task.exception?.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Error " + task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }
         }

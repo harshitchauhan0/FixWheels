@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivitySignupBinding
 import com.harshit.fixwheels.model.UserModel
@@ -52,7 +53,7 @@ class SignupActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 Log.v("TAG","Logged in")
                 uid = auth.currentUser!!.uid
-                firebase.collection("Users").document(uid).set(UserModel(userName,mobile,email,uid))
+                firebase.collection(ExtraUtils.Users).document(uid).set(UserModel(userName,mobile,email,uid))
                 auth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task->
                     if(task.isSuccessful){
                         Toast.makeText(this,"Please Verify Your Email",Toast.LENGTH_LONG).show()

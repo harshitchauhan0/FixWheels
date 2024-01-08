@@ -31,7 +31,7 @@ class ShopFragment : Fragment() {
         adapter = ViewAllAdapter(requireActivity(), viewAllModelList)
         binding.viewAllRec.adapter = adapter
 
-        database.collection("products").get().addOnCompleteListener {
+        database.collection(ExtraUtils.Products).get().addOnCompleteListener {
             if(it.isSuccessful){
                 for(documentSnapshot in it.result.documents) {
                     val viewAllModel: ViewAllModel? =

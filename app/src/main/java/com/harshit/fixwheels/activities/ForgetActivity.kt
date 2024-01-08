@@ -27,7 +27,7 @@ class ForgetActivity : AppCompatActivity() {
                         Toast.makeText(this,"Please check your email",Toast.LENGTH_LONG).show()
                     }
                     else{
-                        Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"Error: ${it.exception?.message}",Toast.LENGTH_LONG).show()
                     }
                 }
             }

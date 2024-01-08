@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivityDetailedBinding
 import com.harshit.fixwheels.model.ViewAllModel
@@ -17,7 +18,7 @@ import java.util.Calendar
 class DetailedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailedBinding
     private var totalQuantity: Long = 1L
-    private var totalPrice: Long = 1L
+    private var totalPrice: Long = 0L
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private var viewAllModel: ViewAllModel? = null
@@ -31,12 +32,12 @@ class DetailedActivity : AppCompatActivity() {
 
         if (intent.extras != null) {
             viewAllModel = ViewAllModel(
-                intent.getStringExtra("name"),
-                intent.getStringExtra("description"),
-                intent.getStringExtra("rating"),
-                intent.getStringExtra("image"),
-                intent.getStringExtra("type"),
-                intent.getLongExtra("price",0)
+                intent.getStringExtra(ExtraUtils.Name),
+                intent.getStringExtra(ExtraUtils.Description),
+                intent.getStringExtra(ExtraUtils.Rating),
+                intent.getStringExtra(ExtraUtils.Image),
+                intent.getStringExtra(ExtraUtils.Type),
+                intent.getLongExtra(ExtraUtils.Price,0)
             )
         }
 
@@ -92,14 +93,12 @@ class DetailedActivity : AppCompatActivity() {
         firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
             .collection("AddToCart")
             .add(cartMap)
-            .addOnSuccessListener { documentReference ->
+            .addOnSuccessListener {
                 Toast.makeText(this, "Added To Cart", Toast.LENGTH_SHORT).show()
                 finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
-
-
     }
 }

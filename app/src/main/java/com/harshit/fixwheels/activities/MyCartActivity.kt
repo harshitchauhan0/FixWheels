@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.adapters.OnCartItemDeletedListener
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.adapters.MyCartAdapter
@@ -34,8 +35,8 @@ class MyCartActivity : AppCompatActivity(), OnCartItemDeletedListener {
         cartAdapter = MyCartAdapter(this, cartModelList,this)
         binding.recyclerview.adapter = cartAdapter
 
-        firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
-            .collection("AddToCart")
+        firestore.collection(ExtraUtils.CurrentUser).document(auth.currentUser!!.uid)
+            .collection(ExtraUtils.AddToCart)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -66,8 +67,8 @@ class MyCartActivity : AppCompatActivity(), OnCartItemDeletedListener {
                         "totalPrice" to model.totalPrice
                     )
 
-                    firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
-                        .collection("MyOrder")
+                    firestore.collection(ExtraUtils.CurrentUser).document(auth.currentUser!!.uid)
+                        .collection(ExtraUtils.MyOrder)
                         .add(cartMap)
                         .addOnCompleteListener {
                             Toast.makeText(this, "Your Order Has Been Placed", Toast.LENGTH_SHORT).show()

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.harshit.fixwheels.model.GarageModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.activities.ProfileActivity
 import com.harshit.fixwheels.R
 
@@ -31,7 +32,7 @@ class GarageAdapter(options: FirestoreRecyclerOptions<GarageModel>, context: Con
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
-            intent.putExtra("id",model.id)
+            intent.putExtra(ExtraUtils.ID,model.id)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             ContextCompat.startActivity(context,intent,null)
         }
@@ -53,7 +54,6 @@ class GarageAdapter(options: FirestoreRecyclerOptions<GarageModel>, context: Con
             address = itemView.findViewById(R.id.address)
             status = itemView.findViewById(R.id.status)
             image = itemView.findViewById(R.id.profile_pic)
-
         }
     }
 

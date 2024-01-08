@@ -27,6 +27,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivityProfileBinding
 import com.harshit.fixwheels.model.BookingModel
@@ -60,8 +61,8 @@ class ProfileActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         uid = auth.currentUser!!.uid
         firebase = FirebaseFirestore.getInstance()
-        garageId = intent.getStringExtra("id").toString()
-        val array:List<String> = listOf("Car","Motor Cycle","Truck","Others")
+        garageId = intent.getStringExtra(ExtraUtils.ID).toString()
+        val array:List<String> = ExtraUtils.vehicleList
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,array)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = adapter
@@ -101,7 +102,7 @@ class ProfileActivity : AppCompatActivity() {
         val bookingModel = BookingModel(imageUri,location?.latitude.toString(),location?.longitude.toString(), Timestamp.now(),
             binding.problemET.text.toString(),uid,vehicle,garageId)
         val curr = dateFormat.format(calendar.time)
-        firebase.collection("bookings").document(garageId).collection(curr)
+        firebase.collection(ExtraUtils.Booking).document(garageId).collection(curr)
             .add(bookingModel).addOnCompleteListener {
                 if(it.isSuccessful){
                     startActivity(Intent(this, OTWActivity::class.java))
@@ -135,11 +136,11 @@ class ProfileActivity : AppCompatActivity() {
     private fun requestGPS(){
         val builder = AlertDialog.Builder(this)
             .setMessage("Enable Gps").setCancelable(false)
-            .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+            .setPositiveButton("Yes") { _, _ ->
                 startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
-            }).setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+            }.setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()
-            })
+            }
 
         val alert = builder.create()
         alert.show()

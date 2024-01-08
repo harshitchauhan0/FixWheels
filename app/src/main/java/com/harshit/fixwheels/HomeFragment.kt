@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: GarageAdapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
-        val query = FirebaseFirestore.getInstance().collection("garages")
+        val query = FirebaseFirestore.getInstance().collection(ExtraUtils.Garages)
         val options = FirestoreRecyclerOptions.Builder<GarageModel>()
             .setQuery(query, GarageModel::class.java)
             .build()

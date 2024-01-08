@@ -26,13 +26,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.container,homeFragment).commit()
         binding.GoToCart.setOnClickListener {
             val intent = Intent(this, MyCartActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         binding.orderBTN.setOnClickListener {
             val intent = Intent(this, OrderPlaced::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 

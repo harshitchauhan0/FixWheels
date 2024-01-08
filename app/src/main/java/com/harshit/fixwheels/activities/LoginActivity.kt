@@ -24,12 +24,10 @@ class LoginActivity : AppCompatActivity() {
     private fun setUpButtons() {
         binding.signUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
         binding.forgotpassword.setOnClickListener {
             val intent = Intent(this, ForgetActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
         binding.loginBTN.setOnClickListener {
@@ -55,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 else{
-                    Toast.makeText(this,"This is user is not verified",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"This user is not verified",Toast.LENGTH_LONG).show()
                 }
             }
             else{

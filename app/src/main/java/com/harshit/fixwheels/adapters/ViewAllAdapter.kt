@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.activities.DetailedActivity
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.model.ViewAllModel
@@ -34,12 +35,12 @@ class ViewAllAdapter(var context: Context, list: MutableList<ViewAllModel>) : Re
         holder.price.text = list[position].price.toString()
         holder.itemView.setOnClickListener{
             val intent = Intent(context, DetailedActivity::class.java)
-            intent.putExtra("name", list[position].name)
-            intent.putExtra("description",list[position].description)
-            intent.putExtra("rating",list[position].rating)
-            intent.putExtra("price",list[position].price)
-            intent.putExtra("image",list[position].img_url)
-            intent.putExtra("type",list[position].type)
+            intent.putExtra(ExtraUtils.Name, list[position].name)
+            intent.putExtra(ExtraUtils.Description,list[position].description)
+            intent.putExtra(ExtraUtils.Rating,list[position].rating)
+            intent.putExtra(ExtraUtils.Price,list[position].price)
+            intent.putExtra(ExtraUtils.Image,list[position].img_url)
+            intent.putExtra(ExtraUtils.Type,list[position].type)
             context.startActivity(intent)
         }
     }
@@ -56,11 +57,11 @@ class ViewAllAdapter(var context: Context, list: MutableList<ViewAllModel>) : Re
         var rating: TextView
 
         init {
-            imageView = itemView.findViewById<ImageView>(R.id.view_img)
-            name = itemView.findViewById<TextView>(R.id.view_name)
-            description = itemView.findViewById<TextView>(R.id.view_description)
-            rating = itemView.findViewById<TextView>(R.id.view_rating)
-            price = itemView.findViewById<TextView>(R.id.view_price)
+            imageView = itemView.findViewById(R.id.view_img)
+            name = itemView.findViewById(R.id.view_name)
+            description = itemView.findViewById(R.id.view_description)
+            rating = itemView.findViewById(R.id.view_rating)
+            price = itemView.findViewById(R.id.view_price)
         }
     }
 }
