@@ -1,6 +1,6 @@
 # FixWheels App
 <BR>
-FixWheels is an Android application designed to streamline vehicle ownership by offering authentication, a marketplace for vehicle-related products, and a convenient booking system for mechanics. The app empowers users to purchase essential items like helmets, gloves, and more, while also facilitating the process of booking mechanics for vehicle issues. Users can provide detailed vehicle information, issue descriptions, share images, and send their current location to selected garages, all of which is stored in Firebase's database.
+FixWheels is an Android application designed to streamline vehicle ownership by offering authentication, a marketplace for vehicle-related products, and a convenient booking system for mechanics. The app empowers users to purchase essential items like helmets, gloves, and more, while also facilitating the process of booking mechanics for vehicle issues. Users can provide detailed vehicle information, and issue descriptions, share images, and send their current location to selected garages, all of which are stored in Firebase's database.
 <BR>
 
 ## Features
@@ -22,6 +22,8 @@ Clone the repository.
 <BR>Run the application on an Android emulator or physical device.
 
 ## Usage
-Authentication: Register or login using valid credentials.
+Authentication: Register or log in using valid credentials.
 <BR>Product Purchase: Browse available products, add items to the cart, and complete the purchase process.
 <BR>Mechanic Booking: Choose a garage, input vehicle specifics, describe issues, upload relevant images, and share the current location for service bookings.
+<BR>
+![Green Modern 7th April World Health Day Poster (A3 Vertical)](https://github.com/harshitchauhan0/FixWheels/assets/113535743/a21845a4-fbec-4b68-a679-1f02bf07d535)
