@@ -12,6 +12,9 @@ import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivitySignupBinding
 import com.harshit.fixwheels.model.UserModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySignupBinding
@@ -53,7 +56,7 @@ class SignupActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 Log.v("TAG","Logged in")
                 uid = auth.currentUser!!.uid
-                firebase.collection(ExtraUtils.Users).document(uid).set(UserModel(userName,mobile,email,uid))
+                CoroutineScope(Dispatchers.Default).launch { firebase.collection(ExtraUtils.Users).document(uid).set(UserModel(userName,mobile,email,uid)) }
                 auth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task->
                     if(task.isSuccessful){
                         Toast.makeText(this,"Please Verify Your Email",Toast.LENGTH_LONG).show()

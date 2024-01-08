@@ -8,6 +8,9 @@ import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivityForgetBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ForgetActivity : AppCompatActivity() {
     private lateinit var binding:ActivityForgetBinding
@@ -22,13 +25,8 @@ class ForgetActivity : AppCompatActivity() {
             }
             else{
                 val email = binding.emailLogin.text.toString()
-                auth.sendPasswordResetEmail(email).addOnCompleteListener {
-                    if(it.isSuccessful){
-                        Toast.makeText(this,"Please check your email",Toast.LENGTH_LONG).show()
-                    }
-                    else{
-                        Toast.makeText(this,"Error: ${it.exception?.message}",Toast.LENGTH_LONG).show()
-                    }
+                CoroutineScope(Dispatchers.Default).launch {
+                    auth.sendPasswordResetEmail(email)
                 }
             }
         }

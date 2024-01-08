@@ -12,6 +12,9 @@ import com.harshit.fixwheels.ExtraUtils
 import com.harshit.fixwheels.R
 import com.harshit.fixwheels.databinding.ActivityDetailedBinding
 import com.harshit.fixwheels.model.ViewAllModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -74,31 +77,29 @@ class DetailedActivity : AppCompatActivity() {
     }
 
     private fun addToCart() {
-        val calender = Calendar.getInstance()
-        val currentDate = SimpleDateFormat("MM/dd/yyyy")
-        val saveCurrentDate = currentDate.format(calender.time)
+        CoroutineScope(Dispatchers.IO).launch{
+            val calender = Calendar.getInstance()
+            val currentDate = SimpleDateFormat("MM/dd/yyyy")
+            val saveCurrentDate = currentDate.format(calender.time)
 
-        val currentTime = SimpleDateFormat("HH:mm:ss a")
-        val saveCurrentTime = currentTime.format(calender.time)
+            val currentTime = SimpleDateFormat("HH:mm:ss a")
+            val saveCurrentTime = currentTime.format(calender.time)
 
-        val cartMap = hashMapOf(
-            "productName" to viewAllModel?.name!!,
-            "productPrice" to binding.detailedPrice.text.toString(),
-            "currentDate" to saveCurrentDate,
-            "currentTime" to saveCurrentTime,
-            "totalQuantity" to binding.quantity.text.toString(),
-            "totalPrice" to totalPrice
-        )
+            val cartMap = hashMapOf(
+                "productName" to viewAllModel?.name!!,
+                "productPrice" to binding.detailedPrice.text.toString(),
+                "currentDate" to saveCurrentDate,
+                "currentTime" to saveCurrentTime,
+                "totalQuantity" to binding.quantity.text.toString(),
+                "totalPrice" to totalPrice
+            )
 
-        firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
-            .collection("AddToCart")
-            .add(cartMap)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Added To Cart", Toast.LENGTH_SHORT).show()
-                finish()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+            firestore.collection("CurrentUser").document(auth.currentUser!!.uid)
+                .collection("AddToCart")
+                .add(cartMap)
+                .addOnSuccessListener {
+                    finish()
+                }
+        }
     }
 }

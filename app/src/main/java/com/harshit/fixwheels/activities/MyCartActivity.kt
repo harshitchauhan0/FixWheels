@@ -15,6 +15,9 @@ import com.harshit.fixwheels.R
 import com.harshit.fixwheels.adapters.MyCartAdapter
 import com.harshit.fixwheels.databinding.ActivityMyCartBinding
 import com.harshit.fixwheels.model.MyCartModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MyCartActivity : AppCompatActivity(), OnCartItemDeletedListener {
     private lateinit var auth: FirebaseAuth
@@ -57,22 +60,22 @@ class MyCartActivity : AppCompatActivity(), OnCartItemDeletedListener {
             val list: MutableList<MyCartModel> = cartModelList
 
             if (list.isNotEmpty()) {
-                for (model in list) {
-                    val cartMap = hashMapOf(
-                        "productName" to model.productName,
-                        "productPrice" to model.productPrice,
-                        "currentDate" to model.currentDate,
-                        "currentTime" to model.currentTime,
-                        "totalQuantity" to model.totalQuantity,
-                        "totalPrice" to model.totalPrice
-                    )
+                CoroutineScope(Dispatchers.IO).launch{
+                    for (model in list) {
+                        val cartMap = hashMapOf(
+                            "productName" to model.productName,
+                            "productPrice" to model.productPrice,
+                            "currentDate" to model.currentDate,
+                            "currentTime" to model.currentTime,
+                            "totalQuantity" to model.totalQuantity,
+                            "totalPrice" to model.totalPrice
+                        )
 
-                    firestore.collection(ExtraUtils.CurrentUser).document(auth.currentUser!!.uid)
-                        .collection(ExtraUtils.MyOrder)
-                        .add(cartMap)
-                        .addOnCompleteListener {
-                            Toast.makeText(this, "Your Order Has Been Placed", Toast.LENGTH_SHORT).show()
-                        }
+                        firestore.collection(ExtraUtils.CurrentUser)
+                            .document(auth.currentUser!!.uid)
+                            .collection(ExtraUtils.MyOrder)
+                            .add(cartMap)
+                    }
                 }
             }
 

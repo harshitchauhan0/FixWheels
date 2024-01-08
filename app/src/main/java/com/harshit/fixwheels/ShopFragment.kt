@@ -12,6 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.harshit.fixwheels.adapters.ViewAllAdapter
 import com.harshit.fixwheels.databinding.FragmentShopBinding
 import com.harshit.fixwheels.model.ViewAllModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ShopFragment : Fragment() {
     private lateinit var binding:FragmentShopBinding
@@ -30,25 +33,25 @@ class ShopFragment : Fragment() {
         viewAllModelList = mutableListOf()
         adapter = ViewAllAdapter(requireActivity(), viewAllModelList)
         binding.viewAllRec.adapter = adapter
-
-        database.collection(ExtraUtils.Products).get().addOnCompleteListener {
-            if(it.isSuccessful){
-                for(documentSnapshot in it.result.documents) {
-                    val viewAllModel: ViewAllModel? =
-                        documentSnapshot.toObject(ViewAllModel::class.java)
-                    if (viewAllModel != null) {
-                        viewAllModelList.add(viewAllModel)
+        CoroutineScope(Dispatchers.IO).launch {
+            database.collection(ExtraUtils.Products).get().addOnCompleteListener {
+                if(it.isSuccessful){
+                    for(documentSnapshot in it.result.documents) {
+                        val viewAllModel: ViewAllModel? =
+                            documentSnapshot.toObject(ViewAllModel::class.java)
+                        if (viewAllModel != null) {
+                            viewAllModelList.add(viewAllModel)
+                        }
+                        adapter.notifyDataSetChanged()
+                        binding.progressbar.visibility = View.GONE
+                        binding.viewAllRec.visibility = View.VISIBLE
                     }
-                    adapter.notifyDataSetChanged()
-                    binding.progressbar.visibility = View.GONE
-                    binding.viewAllRec.visibility = View.VISIBLE
+                }
+                else{
+                    Toast.makeText(requireActivity(),it.exception.toString(),Toast.LENGTH_SHORT).show()
                 }
             }
-            else{
-                Toast.makeText(requireActivity(),it.exception.toString(),Toast.LENGTH_SHORT).show()
-            }
         }
-
 
         return binding.root
     }
