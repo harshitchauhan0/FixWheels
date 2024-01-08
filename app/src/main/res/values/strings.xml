@@ -34,4 +34,5 @@
     <string name="your_mechanic_is_on_the_way">Your Mechanic is on the way</string>
     <string name="thank_you_n_please_come_again">Thank you\n Please Come Again.</string>
     <string name="welcome_to_our_app">Welcome to Our App</string>
+    <string name="logout">Logout</string>
 </resources>

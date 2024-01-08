@@ -10,4 +10,9 @@
         android:icon="@drawable/icon"
         android:title="@string/shop"/>
 
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/_124045_logout_icon"
+        android:title="@string/logout"/>
+
 </menu>
