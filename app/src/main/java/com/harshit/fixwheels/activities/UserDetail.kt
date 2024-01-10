@@ -27,8 +27,6 @@ class UserDetail : AppCompatActivity() {
         binding.locationTV.setOnClickListener {
             val latitude = model.latitude
             val longitude = model.longitude
-
-            // Check if latitude and longitude are not empty
             if (latitude!=null && longitude!=null && latitude.isNotEmpty() && longitude.isNotEmpty()) {
                 val geoUri = "geo:$latitude,$longitude"
                 val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))
