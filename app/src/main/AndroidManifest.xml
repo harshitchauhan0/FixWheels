@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +26,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixWheels"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.GarageProfile"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GarageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SettingUpGarage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GarageLogin"
+            android:exported="false" />
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="false" />

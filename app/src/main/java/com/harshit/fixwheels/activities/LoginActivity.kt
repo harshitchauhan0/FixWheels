@@ -30,9 +30,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, ForgetActivity::class.java)
             startActivity(intent)
         }
-        binding.registerGarageBTN.setOnClickListener {
-
-        }
         binding.loginBTN.setOnClickListener {
             if(TextUtils.isEmpty(binding.loginEmail.text) or TextUtils.isEmpty(binding.loginPassword.text)){
                 Toast.makeText(this,"Fill details Correctly",Toast.LENGTH_LONG).show()

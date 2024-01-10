@@ -11,9 +11,11 @@ object ExtraUtils {
     const val AddToCart = "AddToCart"
     const val MyOrder = "MyOrder"
     const val ID = "id"
+    const val PHONE = "phone"
     const val Booking = "bookings"
     const val Users = "Users"
     const val Garages = "garages"
     const val Products = "products"
+    const val PROFILE = "profile"
     val vehicleList = listOf("Car","Motor Cycle","Truck","Others")
 }

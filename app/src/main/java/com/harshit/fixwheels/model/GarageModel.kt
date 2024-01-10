@@ -6,5 +6,6 @@ data class GarageModel(
     var imageUri: String? = "",
     var address: String? = "",
     var description: String? = "",
-    var id:String? = ""
+    var id:String? = "",
+    var phone:String? = ""
 )

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".activities.SettingUpGarage">
+
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="52dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:orientation="vertical"
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="26dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="9dp"
+                    android:text="Set Your Garage Image By Click below"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/welcome_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/welcome_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/click_png_45034"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                android:orientation="vertical"
+                android:id="@+id/linear3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="250dp">
+
+                <EditText
+                    android:id="@+id/garageNameET"
+                    android:layout_width="319dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/spinner_back"
+                    android:drawableStart="@drawable/baseline_account_circle_24"
+                    android:drawablePadding="13dp"
+                    android:elevation="3dp"
+                    android:hint="Please Enter Your Garage Name"
+                    android:padding="13dp"
+                    android:textColor="#888887"
+                    app:layout_constraintWidth_percent="1" />
+
+                <EditText
+                    android:id="@+id/garageServiceET"
+                    android:layout_height="85sp"
+                    android:layout_marginEnd="25sp"
+                    android:layout_marginStart="25sp"
+                    android:layout_width="319dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/spinner_back"
+                    android:drawableStart="@drawable/icons8_info"
+                    android:drawablePadding="13dp"
+                    android:elevation="3dp"
+                    android:hint="Please Enter Details About Your Services"
+                    android:padding="13dp"
+                    android:textColor="#888887"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintWidth_percent="1" />
+                <EditText
+                    android:id="@+id/garageAddressET"
+                    android:layout_width="319dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/spinner_back"
+                    android:drawableStart="@drawable/location"
+                    android:drawablePadding="13dp"
+                    android:elevation="3dp"
+                    android:hint="Please Enter Garage Address"
+                    android:padding="13dp"
+                    android:textColor="#888887"
+                    app:layout_constraintWidth_percent="1" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/letsGoBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:padding="14dp"
+                android:text="Lets Go"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>

@@ -35,4 +35,8 @@
     <string name="thank_you_n_please_come_again">Thank you\n Please Come Again.</string>
     <string name="welcome_to_our_app">Welcome to Our App</string>
     <string name="logout">Logout</string>
+    <string name="discover_our_app">Discover our App</string>
+    <string name="otp3">on this number</string>
+    <string name="otp2">(ONE TIME VERIFICATION)</string>
+    <string name="otp1">We will send you OTP</string>
 </resources>

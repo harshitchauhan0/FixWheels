@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.GoToGarage.setOnClickListener {
+            val intent = Intent(this,GarageLogin::class.java)
+            startActivity(intent)
+        }
+
         binding.orderBTN.setOnClickListener {
             val intent = Intent(this, OrderPlaced::class.java)
             startActivity(intent)
