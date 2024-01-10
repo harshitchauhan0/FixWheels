@@ -44,6 +44,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var firebase:FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     private lateinit var uid:String
+    private var userName:String? = null
     private lateinit var calendar:Calendar
     private lateinit var dateFormat: SimpleDateFormat
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -55,6 +56,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.backIV.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+        userName = getSharedPreferences("username", MODE_PRIVATE).getString("name","")
         calendar = Calendar.getInstance()
         dateFormat = SimpleDateFormat("dd-MM-yyyy")
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -100,7 +102,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun saveData() {
         val bookingModel = BookingModel(imageUri,location?.latitude.toString(),location?.longitude.toString(), Timestamp.now(),
-            binding.problemET.text.toString(),uid,vehicle,garageId)
+            binding.problemET.text.toString(),uid,vehicle,garageId, userName)
         val curr = dateFormat.format(calendar.time)
         firebase.collection(ExtraUtils.Booking).document(garageId).collection(curr)
             .add(bookingModel).addOnCompleteListener {

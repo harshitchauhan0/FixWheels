@@ -1,6 +1,7 @@
 package com.harshit.fixwheels.model
 
 import com.google.firebase.Timestamp
+import java.io.Serializable
 
 data class BookingModel(
     var imageUri: String? = "",
@@ -10,5 +11,6 @@ data class BookingModel(
     var description: String? = "",
     var customerId:String? = "",
     var vehicle:String? = "",
-    var garageId:String? = ""
-)
+    var garageId:String? = "",
+    var userName:String? = ""
+):Serializable

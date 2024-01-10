@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixWheels"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.UserDetail"
+            android:exported="false" />
         <activity
             android:name=".activities.GarageProfile"
             android:exported="false" />
@@ -72,6 +76,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY_HERE" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true" />

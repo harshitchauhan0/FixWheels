@@ -56,6 +56,8 @@ class SignupActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 Log.v("TAG","Logged in")
                 uid = auth.currentUser!!.uid
+                val s = getSharedPreferences("username", MODE_PRIVATE)
+                s.edit().putString("name",userName).apply()
                 CoroutineScope(Dispatchers.Default).launch { firebase.collection(ExtraUtils.Users).document(uid).set(UserModel(userName,mobile,email,uid)) }
                 auth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task->
                     if(task.isSuccessful){
