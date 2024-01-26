@@ -2,7 +2,7 @@
 <BR>
 FixWheels is an Android application designed to streamline vehicle ownership by offering authentication, a marketplace for vehicle-related products, and a convenient booking system for mechanics. The app empowers users to purchase essential items like helmets, gloves, and more, while also facilitating the process of booking mechanics for vehicle issues. Users can provide detailed vehicle information, and issue descriptions, share images, and send their current location to selected garages, all of which are stored in Firebase's database.
 <BR>
-
+<BR>
 ## Features
 Authentication: Secure user login and registration system.
 <BR>Product Marketplace: Explore and purchase a variety of vehicle-related products.
