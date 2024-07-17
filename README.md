@@ -26,4 +26,3 @@ Authentication: Register or log in using valid credentials.
 <BR>Product Purchase: Browse available products, add items to the cart, and complete the purchase process.
 <BR>Mechanic Booking: Choose a garage, input vehicle specifics, describe issues, upload relevant images, and share the current location for service bookings.
 <BR>
-![Green Modern 7th April World Health Day Poster (A3 Vertical)](https://github.com/harshitchauhan0/FixWheels/assets/113535743/a21845a4-fbec-4b68-a679-1f02bf07d535)
